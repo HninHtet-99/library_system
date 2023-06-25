@@ -1,18 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import Nav from "../../components/Nav";
 
 const Layout = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Create</li>
-        </ul>
-      </nav>
+    <>
+      <Nav />
       {/* dynamic route change content */}
-      <Outlet />
-    </div>
+      <div className="max-w-6xl mx-auto p-3">
+        <Outlet />
+      </div>
+    </>
   );
 };
 
