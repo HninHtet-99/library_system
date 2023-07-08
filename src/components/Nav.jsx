@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <nav className="border border-b-1">
-      <ul className="flex justify-between items-center p-3 max-w-6xl mx-auto">
+      <ul
+        className="flex items-center justify-between p-3 mx-auto"
+        style={{ maxWidth: "56rem" }}
+      >
         <li className="flex items-center gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +33,8 @@ const Nav = () => {
 
         <Link
           to={"/"}
-          className="flex items-center gap-3 md:-ml-32 cursor-pointer"
+          className="flex items-center md:ml-32 gap-3 cursor-pointer"
+          // style={{marginRight:20}}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,15 +52,15 @@ const Nav = () => {
           </svg>
 
           <span className="text-2xl font-bold text-primary hidden md:block">
-            BookStore
+            Book Store
           </span>
         </Link>
 
-        <li className="flex gap-3 items-center">
+        <li className="flex gap-2 items-center">
           {/* create book */}
           <Link
             to={"/create"}
-            className="text-white bg-primary px-3 py-2 rounded-2xl flex items-center gap-1"
+            className="text-white bg-primary px-2 py-1 rounded-2xl flex items-center gap-1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +83,7 @@ const Nav = () => {
             <img
               src="https://lh3.googleusercontent.com/ogw/AOLn63FZd6RWnr0BSIv6vQj36q5-_OTNH0qWwvyTqmEj=s32-c-mo"
               alt=""
-              className="w-full  rounded-full"
+              className="w-full rounded-full"
             />
           </div>
         </li>
