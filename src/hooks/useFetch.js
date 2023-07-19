@@ -1,41 +1,57 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-function useFetch(url, _option) {
+function useFetch(url, method = "GET") {
   let [data, setData] = useState(null);
+  let [postData, setPostData] = useState(null);
   let [loading, setLoading] = useState(false);
   let [error, setError] = useState(null);
-
-  // solving infinite loop with useRef
-  let option = useRef(_option).current;
 
   useEffect(() => {
     // console.log(option);
     let abortController = new AbortController();
     let signal = abortController.signal;
 
-    setLoading(true);
-    fetch(url, { signal })
-      .then((res) => {
-        //throw error
-        // console.log(res);
-        if (!res.ok) {
-          throw Error("something went wrong");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setData(data);
-        setError(null);
-        setLoading(false);
-      })
-      .catch((err) => setError(err.message));
+    let options = { signal, method };
 
+    setLoading(true);
+
+    let fetchData = () => {
+      fetch(url, options)
+        .then((res) => {
+          //throw error
+          if (!res.ok) {
+            throw Error("something went wrong");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setData(data);
+          setError(null);
+          setLoading(false);
+        })
+        .catch((err) => setError(err.message));
+    };
+
+    if (method === "POST" && postData) {
+      options = {
+        ...options,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      };
+      fetchData();
+    }
+
+    if (method === "GET") {
+      fetchData();
+    }
     // cleanup function
     return () => {
       abortController.abort();
     };
-  }, [url, option]);
+  }, [url, postData]);
 
-  return { data, loading, error };
+  return { setPostData, data, loading, error };
 }
 export default useFetch;
