@@ -1,7 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
+  let [search, setSearch] = useState("");
+  let navigate = useNavigate();
+  let handleSearch = () => {
+    navigate("/?search=" + search);
+  };
   return (
     <nav className="border border-b-1">
       <ul
@@ -9,6 +14,7 @@ const Nav = () => {
         style={{ maxWidth: "56rem" }}
       >
         <li className="flex items-center gap-3">
+          {/* search feature */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -28,7 +34,15 @@ const Nav = () => {
             type="text"
             placeholder="search book..."
             className="outline-none"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
+          <button
+            onClick={handleSearch}
+            className="text-white bg-primary px-2 py-1 rounded-2xl flex items-center gap-1"
+          >
+            <span className="hidden md:block">Search</span>
+          </button>
         </li>
 
         <Link

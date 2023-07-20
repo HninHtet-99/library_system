@@ -36,6 +36,15 @@
         "dfsdfdf"
       ],
       "id": 4
+    },
+    {
+      "title": "This is book title",
+      "description": "this is book description",
+      "categories": [
+        "drama",
+        "romance"
+      ],
+      "id": 5
     }
   ]
 }
