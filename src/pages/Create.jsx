@@ -15,6 +15,10 @@ const Create = () => {
   let navigate = useNavigate();
 
   let addNewCategory = () => {
+    if (newCategory && categories.includes(newCategory)) {
+      setNewCategory("")
+      return;
+    }
     setCategories((prev) => [newCategory, ...prev]);
     setNewCategory("");
   };

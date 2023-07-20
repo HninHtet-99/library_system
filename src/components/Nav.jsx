@@ -6,6 +6,7 @@ const Nav = () => {
   let navigate = useNavigate();
   let handleSearch = () => {
     navigate("/?search=" + search);
+    setSearch("");
   };
   return (
     <nav className="border border-b-1">

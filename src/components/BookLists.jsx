@@ -17,7 +17,7 @@ const BookLists = () => {
     return <p>{error}</p>;
   }
   return (
-    <>
+    <div>
       {loading && <p>Loading ....</p>}
       {!!books && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-3">
@@ -43,9 +43,14 @@ const BookLists = () => {
               </div>
             </Link>
           ))}
+          {!books.length && (
+            <p className="text-center text-xl text-gray-50">
+              No Search Result Found
+            </p>
+          )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
