@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ThemeContext } from "../contexts/themeContext";
+import useTheme from "../hooks/useTheme";
 
 const Nav = () => {
   let [search, setSearch] = useState("");
@@ -9,12 +9,12 @@ const Nav = () => {
     navigate("/?search=" + search);
     setSearch("");
   };
-  let { theme } = useContext(ThemeContext);
+  let { theme } = useTheme();
   console.log(theme);
   return (
     <nav
       className={`border border-b-1 ${
-        theme === "dark" ? "bg-blue-400" : "bg-yellow-200"
+        theme === "dark" ? "bg-blue-400" : "bg-yellow-700"
       }`}
     >
       <ul
