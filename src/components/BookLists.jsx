@@ -43,12 +43,12 @@ const BookLists = () => {
               </div>
             </Link>
           ))}
-          {!books.length && (
-            <p className="text-center text-xl text-gray-50">
-              No Search Result Found
-            </p>
-          )}
         </div>
+      )}
+      {books && !books.length && (
+        <p className="text-center text-xl text-gray-50">
+          No Search Result Found
+        </p>
       )}
     </div>
   );

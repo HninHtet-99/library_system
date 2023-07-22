@@ -16,7 +16,7 @@ const Create = () => {
 
   let addNewCategory = () => {
     if (newCategory && categories.includes(newCategory)) {
-      setNewCategory("")
+      setNewCategory("");
       return;
     }
     setCategories((prev) => [newCategory, ...prev]);

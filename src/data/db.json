@@ -4,53 +4,31 @@
       "id": 1,
       "title": "Eloquent javascript",
       "description": "Best JS book",
-      "categories": [
-        "javascript",
-        "programming"
-      ]
+      "categories": ["javascript", "programming"]
     },
     {
       "id": 2,
       "title": "Laravel from Scratch",
       "description": "Best PHP framework book",
-      "categories": [
-        "PHP",
-        "programming",
-        "laravel"
-      ]
+      "categories": ["PHP", "programming", "laravel"]
     },
     {
       "id": 3,
       "title": "React Basic",
       "description": "Best JS Library book",
-      "categories": [
-        "react",
-        "programming",
-        "javascript"
-      ]
+      "categories": ["react", "programming", "javascript"]
     },
     {
       "title": "dfsf",
       "description": "sdfcsdf",
-      "categories": [
-        "dfsdfdf"
-      ],
+      "categories": ["dfsdfdf"],
       "id": 4
     },
     {
       "title": "This is book title",
       "description": "this is book description",
-      "categories": [
-        "drama",
-        "romance"
-      ],
+      "categories": ["drama", "romance"],
       "id": 5
-    },
-    {
-      "title": "",
-      "description": "",
-      "categories": [],
-      "id": 6
     }
   ]
 }

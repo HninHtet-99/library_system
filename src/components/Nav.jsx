@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../contexts/themeContext";
 
 const Nav = () => {
   let [search, setSearch] = useState("");
@@ -8,8 +9,14 @@ const Nav = () => {
     navigate("/?search=" + search);
     setSearch("");
   };
+  let { theme } = useContext(ThemeContext);
+  console.log(theme);
   return (
-    <nav className="border border-b-1">
+    <nav
+      className={`border border-b-1 ${
+        theme === "dark" ? "bg-blue-400" : "bg-yellow-200"
+      }`}
+    >
       <ul
         className="flex items-center justify-between p-3 mx-auto"
         style={{ maxWidth: "56rem" }}
